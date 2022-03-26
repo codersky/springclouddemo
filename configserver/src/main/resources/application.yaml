@@ -1,0 +1,44 @@
+server:
+  port: 8888
+
+management:
+  endpoints:
+    web:
+      base-path: "/admin"
+      exposure:
+        include: "*"
+  endpoint:
+    env:
+      post:
+        enabled: true
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    statusPageUrlPath: /admin/info
+    healthCheckUrlPath: /admin/health
+
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:///Users/lliu12/Downloads/springclouddemo/config-repo
+#          basedir: target/config
+#          default-label: main
+      bus:
+        enabled: true
+        refresh:
+          enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: configserver
+    password: configserver
+
