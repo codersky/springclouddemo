@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  rabbit:
+    image: bitnami/rabbitmq:latest
+    hostname: rabbit
+    container_name: "xiaoli_rabbitmq3.8"
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=configserver
+      - RABBITMQ_DEFAULT_PASS=configserver
+#    volumes:
+#      - ~/Downloads/springclouddemo/middleware/rabitmq/.docker-conf/data/:/var/lib/rabbitmq/
+#      - ~/Downloads/springclouddemo/middleware/rabitmq/.docker-conf/log/:/var/log/rabbitmq
+    networks:
+      - rabbitmq_go_net
+networks:
+  rabbitmq_go_net:
+    driver: bridge
