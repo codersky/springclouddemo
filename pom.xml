@@ -6,7 +6,8 @@
 	<modules>
 		<module>configserver</module>
 		<module>servicercenter</module>
-	</modules>
+        <module>service01</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>

@@ -29,9 +29,9 @@ spring:
     config:
       server:
         git:
-          uri: file:///Users/lliu12/Downloads/springclouddemo/config-repo
-#          basedir: target/config
-#          default-label: main
+          uri: git@github.com:codersky/springclouddemo.git
+          basedir: config-repo
+          default-label: main
       bus:
         enabled: true
         refresh:
